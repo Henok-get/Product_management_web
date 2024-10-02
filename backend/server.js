@@ -7,6 +7,7 @@ const app=express();
 dotenv.config();
 
 app.use(express.json()); //to use json for request
+const PORT = process.env.PORT;
 
 
 app.use("/api/products",productRoutes)
@@ -19,7 +20,7 @@ if (process.env.NODE_ENV === "production") {
 }
 app.listen(3000,()=>{
 connectDB();
-    console.log("server started at http://localhost:3000");
+    console.log("server started at http://localhost:"+PORT);
 
 })
 
